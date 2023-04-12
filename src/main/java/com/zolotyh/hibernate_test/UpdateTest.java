@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Test2 {
+public class UpdateTest {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -13,12 +13,11 @@ public class Test2 {
                 .buildSessionFactory();
         try {
             Session session = factory.getCurrentSession();
-            Employee employee = new Employee("Виталий", "Сабынин", "Гидравлик", 300);
             session.beginTransaction();
-            session.save(employee);
-            int id = employee.getId();
-            Employee myEmp = session.get(Employee.class, id);
-            System.out.println(myEmp);
+            Employee employee = session.get(Employee.class, 1);
+            employee.setSalary(1000);
+
+            session.createQuery("UPDATE Employee SET salary = 500 WHERE department = 'Гидравлик'").executeUpdate();
             session.getTransaction().commit();
         }
         finally {
