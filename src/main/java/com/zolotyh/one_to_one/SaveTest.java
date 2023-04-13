@@ -1,7 +1,7 @@
-package com.zolotyh.table_relations;
+package com.zolotyh.one_to_one;
 
-import com.zolotyh.table_relations.entity.Detail;
-import com.zolotyh.table_relations.entity.Employee;
+import com.zolotyh.one_to_one.entity.Detail;
+import com.zolotyh.one_to_one.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

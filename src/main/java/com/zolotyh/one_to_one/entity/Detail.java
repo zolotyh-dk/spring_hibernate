@@ -1,4 +1,4 @@
-package com.zolotyh.table_relations.entity;
+package com.zolotyh.one_to_one.entity;
 
 import javax.persistence.*;
 
@@ -15,6 +15,9 @@ public class Detail {
     private String phoneNumber;
     @Column(name = "email")
     private String email;
+    @OneToOne(mappedBy = "empDetail",
+    cascade = CascadeType.ALL)
+    private Employee employee;
 
     public Detail() {
     }
@@ -55,6 +58,14 @@ public class Detail {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.zolotyh.table_relations.entity;
+package com.zolotyh.one_to_one.entity;
 
 import javax.persistence.*;
 
